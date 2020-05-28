@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css?family=Sulphur+Point&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Cookie|Great+Vibes|Mr+Dafoe|Rock+Salt|Sacramento&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css\style.css">
+<link rel="stylesheet" href="cdn\bootstrap.min.css">
+<link rel="stylesheet" href="cdn\fonts.css">
+<title>Title</title>
+</head>
+<body>
+  <!-- nav -->
+  <nav class="navbar navbar-expand-lg"  style=" box-shadow: 0 1px 8px #333;">
+      <div class="container text-uppercase p-2">
+      <a class="navbar-brand" href="index.html" id="brnd2">Vinegar Food's</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item2 active ">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item2">
+            <a class="nav-link" href="about.html">About us</a>
+          </li>
+          <li class="nav-item2">
+            <a class="nav-link" href="gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item2">
+              <a class="nav-link"  href="#myModal" data-toggle="modal" role="button">Contact us</a>
+            </li>
+        </ul>
+      </div>
+      </div>
+    </nav>
+    <section class="mainsecord">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+<div class="leftor" id="leftt">
+  <ul class="orderul">
+    <li><button class="btnnord" onclick="Show_product(1,7)" >cold drink</button></li>
+    <li><button class="btnnord" onclick="Show_product(8,15)">food</button></li>
+    <li><button class="btnnord" onclick="Show_product(16,24)">chines</button></li>
+    <li><button class="btnnord" onclick="Show_product(24,30)">Fast Food</button></li>
+    <li><button class="btnnord" onclick="Show_product(1,15)">BBQ</button></li>
+    <li><button class="btnnord" onclick="Show_product(16,30)">starters</button></li>
+  </ul>
+  <div id="mybutton">
+    <button class="feedbackl"  data-target="#login" data-toggle="modal">Login now</button>
+   </div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="centrdiv">
+     <div id="main_prorduct"></div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="finelod">
+  <div class="card mb-3 text-center"  id="ord">
+  <h3  class="text-center" id="newarh">Your order</h3>
+  <div class="ordd">
+    <div  class="Gohi" id="Goh">   
+      
+    </div>  
+  </div>
+  <div class="ordis">
+  <div class="orrc">
+  <h6 id="Prize">Prize = 0</h6>
+  <h6 id="Service">Service = 200</h6>
+  <h6 id="Discount">Discount = 0</h6>
+  <h6 id="GST">GST = 0</h6>
+</div>
+  <h6 class="ordh2" id='Yourf'>Total = 0</h6>
+
+  <a><button class="btn btn-primary position-sticky" id="btnord" onclick="CheckUser()">Order Now</button></a>
+  </div>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+  <!-- Footer -->
+  <section class="orsec">
+<footer class="page-footer font-small">
+
+    <!-- Footer Links -->
+    <div class="container">
+  
+      <!-- Grid row-->
+      <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+  
+        <!-- Grid column -->
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase text-white font-weight-bold">
+            <a href="#!">About us</a>
+          </h6>
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!">Products</a>
+          </h6>
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!">Awards</a>
+          </h6>
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!">Help</a>
+          </h6>
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!">Contact</a>
+          </h6>
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row-->
+      <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+  
+      <!-- Grid row-->
+      <div class="row pb-3">
+  
+        <!-- Grid column -->
+        <div class="col-md-12">
+  
+          <div class="mb-5">
+  
+            <!-- Facebook -->
+            <a class="fb-ic">
+              <i class="fab fa-facebook-f fa-lg mr-4"> </i>
+            </a>
+            <!-- Twitter -->
+            <a class="tw-ic">
+              <i class="fab fa-twitter fa-lg white-text mr-4"> </i>
+            </a>
+            <!-- Google +-->
+            <a class="gplus-ic">
+              <i class="fab fa-google-plus-g fa-lg white-text mr-4"> </i>
+            </a>
+            <!--Instagram-->
+            <a class="ins-ic">
+              <i class="fab fa-instagram fa-lg white-text mr-4"> </i>
+            </a>
+            <!--Pinterest-->
+            <a class="pin-ic">
+              <i class="fab fa-pinterest fa-lg white-text"> </i>
+            </a>
+  
+          </div>
+  
+        </div>
+  
+      </div>
+
+    </div>
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+      <a href="https://strom.netlify.com">gamaportal8@gmail.com</a>
+    </div>
+    <div class="scrolltop float-right">
+      <i class="fa fa-arrow-up" onclick="topFunction()" id="mybtn"></i>
+    </div>
+  </footer>
+</section>
+  <!-- Footer -->
+    <!--Modal: Login / Register Form-->
+    <div id="login" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        
+        <div class="modal-content">
+          <div class="modal-body">
+            <button data-dismiss="modal" class="close" onclick="document.getElementById('login').style.display = 'none',document.getElementById('login').className = 'modal fade'">&times;</button>
+            <form>
+              <h1 class="loglog">Login</h1>
+              <input type="text" name="username" class="username form-control" id="email" placeholder="Email"/>
+              <input type="password" name="password" class="password form-control" id="password" placeholder="password"/>
+              <input class="btn login" type="submit" value="Login" />
+              <a class="logfb">
+                <i class="fab fa-facebook-f fa-lg mr-4" id="loffb"> </i>
+              </a>
+              <a class="tw-ic">
+                <i class="fab fa-twitter fa-lg white-text mr-4" id="loftb"> </i>
+              </a>
+              <a class="gplus-ic">
+                <i class="fab fa-google-plus-g fa-lg white-text mr-4"id="lofgb"> </i>
+              </a>
+              <!--Instagram-->
+              <a class="ins-ic">
+                <i class="fab fa-instagram fa-lg white-text mr-4" id="lofib"> </i>
+              </a>
+            </form>
+          </div>
+        </div>
+      </div>  
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="js/js.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+<script>
+
+
+  myFav();
+  Show_product(1,30);
+
+
+
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBKoRhhZ0QJ0wOcg3QTJHbr_62BUbcd7ts",
+    authDomain: "vinegar-food-s.firebaseapp.com",
+    databaseURL: "https://vinegar-food-s.firebaseio.com",
+    projectId: "vinegar-food-s",
+    storageBucket: "vinegar-food-s.appspot.com",
+    messagingSenderId: "990858698465",
+    appId: "1:990858698465:web:fd2446f481637e3378a1a0",
+    measurementId: "G-PYDBNEL5MW"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+    let ref = firebase.database().ref();
+
+   
+
+
+  function CheckUser() {
+    var user = firebase.auth().currentUser;
+      if (user) {
+        alert("Your Order have been note")
+        localStorage.removeItem("Order");
+        myFav();
+      } 
+      else {
+        window.location.href = "Login.html"
+        }
+  }
+
+
+  
+  function getElementValue(elem) {
+        return document.getElementById(elem).value
+    }
+
+    function signup() {
+        let username = getElementValue("username");
+        let email = getElementValue("email");
+        let pass = getElementValue("password");
+        firebase.auth().createUserWithEmailAndPassword(email, pass)
+            .then((res) => {
+                console.log(res);
+                if (res.user.uid) {
+                    var obj = {email: email,
+                        username: username,
+                        Uid:res.user.uid,
+                        displayName: username,
+                        photoURL: "https://avatars1.githubusercontent.com/u/844211?v=4&s=460"}
+                        ref.child("users").child(res.user.uid).set({obj}); 
+                    localStorage.setItem("Login", JSON.stringify(true))
+                    document.getElementById("signup").style.display = 'none'
+                    document.getElementById("signin").style.display = 'block'
+                }
+            })
+            .catch((e) => {
+                console.log("error", e);
+                switch (e.code) {
+                    case 'auth/weak-password':
+                        alert(e.message)
+                        break;
+                    case 'auth/email-already-in-use':
+                        alert(e.message)
+                        break;
+                }
+            })
+    }
+    function signin() {
+        let email = getElementValue("Lemail");
+        let pass = getElementValue("Lpassword");
+        firebase.auth().signInWithEmailAndPassword(email, pass)
+            .then((res) => {
+                localStorage.setItem("Login", JSON.stringify(res));
+                window.location.href = "./order.html"
+            })
+            .catch((e) => {
+                console.log(e);
+                switch (e.code) {
+                    case "auth/wrong-password": // wrong password on sign in
+                        alert(e.message)
+                        break;
+                    case "auth/user-not-found": // user not found on sign in on wrong email
+                        alert(e.message)
+                        break;
+                    default: 
+                        alert(e.message);
+                }
+            })
+    }
+
+
+</script>
+
+</body>
+</html>

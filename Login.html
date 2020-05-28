@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Sulphur+Point&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cookie|Great+Vibes|Mr+Dafoe|Rock+Salt|Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css\style.css">
+    <link rel="stylesheet" href="cdn\bootstrap.min.css">
+    <link rel="stylesheet" href="cdn\fonts.css">
+<style>
+.newew
+{
+    display:  flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:150px ;
+    width: 400px;
+    margin-left: 500px;
+    padding: 12px 20px;
+}
+
+.hnadd
+{
+    display:  flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:20px ;
+    width: 400px;
+    margin-left: 500px;
+    padding: 12px 20px;
+}
+
+.hnadd:hover
+{
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.3);
+}
+
+.newew:hover
+{
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.3);
+}
+
+#username
+{
+    padding: 10px;
+    padding-top: 10px;
+    background: none;
+    border: 1px solid rgb(136, 126, 126);
+    border-radius: 30px;
+}
+
+#email
+{
+    margin-top: -40px;
+    padding: 10px;
+    background: none;
+    border: 1px solid rgb(136, 126, 126);
+    border-radius: 30px;
+}
+
+#password
+{
+    margin-top: -50px;
+    padding: 10px;
+    background: none;
+    border: 1px solid rgb(136, 126, 126);
+    border-radius: 30px;
+}
+
+#holll
+{
+    margin: 10px;
+    margin-left: 50px;
+}
+
+#Lemail
+{
+    margin-top: -40px;
+    padding: 10px;
+    background: none;
+    border: 1px solid rgb(136, 126, 126);
+    border-radius: 30px;
+}
+#Lpassword
+{
+    
+    margin-top: -50px;
+    padding: 10px;
+    background: none;
+    border: 1px solid rgb(136, 126, 126);
+    border-radius: 30px;
+}
+
+#holl2
+{
+    margin: 10px;
+    margin-left: 50px;
+}
+</style>
+
+</head>
+
+
+<body>
+    <div class="newew">
+    <form id="signup" style="display:none"><h1 class="crus">Create user</h1>
+        <label for="username">Username</label> <br>
+        <input type="text" id="username"> <br> <br>
+
+        <label for="email">Email</label> <br>
+        <input type="email" id="email"> <br> <br>
+
+        <label for="password">Password</label> <br>
+        <input type="password" id="password"> <br>
+
+        <button type="button" id="holll" class="btn btn-primary" onclick="signup()"> Signup </button>
+    </form>
+</div>
+<div class="hnadd">
+    <form id="signin" style="display:none">
+        <label for="Lemail">Email</label> <br>
+        <input type="email" id="Lemail"> <br> <br>
+
+        <label for="Lpassword">Password</label> <br>
+        <input type="password" id="Lpassword"> <br>
+
+        <button type="button" id="holl2" class="btn btn-primary" onclick="signin()"> Signin </button>
+    </form>
+</div>
+</body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+     
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBKoRhhZ0QJ0wOcg3QTJHbr_62BUbcd7ts",
+    authDomain: "vinegar-food-s.firebaseapp.com",
+    databaseURL: "https://vinegar-food-s.firebaseio.com",
+    projectId: "vinegar-food-s",
+    storageBucket: "vinegar-food-s.appspot.com",
+    messagingSenderId: "990858698465",
+    appId: "1:990858698465:web:fd2446f481637e3378a1a0",
+    measurementId: "G-PYDBNEL5MW"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+    let ref = firebase.database().ref();
+
+
+
+    function getElementValue(elem) {
+        return document.getElementById(elem).value
+    }
+    function signup() {
+        let username = getElementValue("username");
+        let email = getElementValue("email");
+        let pass = getElementValue("password");
+        firebase.auth().createUserWithEmailAndPassword(email, pass)
+            .then((res) => {
+                console.log(res);
+                if (res.user.uid) {
+                    var obj = {email: email,
+                        username: username,
+                        Uid:res.user.uid,
+                        displayName: username,
+                        photoURL: "https://avatars1.githubusercontent.com/u/844211?v=4&s=460"}
+                        ref.child("users").child(res.user.uid).set({obj}); 
+                    localStorage.setItem("Login", JSON.stringify(true))
+                    document.getElementById("signup").style.display = 'none'
+                    document.getElementById("signin").style.display = 'block'
+                }
+            })
+            .catch((e) => {
+                console.log("error", e);
+                switch (e.code) {
+                    case 'auth/weak-password':
+                        alert(e.message)
+                        break;
+                    case 'auth/email-already-in-use':
+                        alert(e.message)
+                        break;
+                }
+            })
+    }
+    function signin() {
+        let email = getElementValue("Lemail");
+        let pass = getElementValue("Lpassword");
+        firebase.auth().signInWithEmailAndPassword(email, pass)
+            .then((res) => {
+                localStorage.setItem("Login", JSON.stringify(res));
+                alert("Your Order have been note");
+                localStorage.removeItem("Order");
+                window.location.href = "./index.html"
+            })
+            .catch((e) => {
+                console.log(e);
+                switch (e.code) {
+                    case "auth/wrong-password": // wrong password on sign in
+                        alert(e.message)
+                        break;
+                    case "auth/user-not-found": // user not found on sign in on wrong email
+                        alert(e.message)
+                        break;
+                    default: 
+                        alert(e.message);
+                }
+            })
+    }
+
+    if (JSON.parse(localStorage.getItem("Login"))) {
+        document.getElementById("signin").style.display = "block";
+    } else {
+        document.getElementById("signup").style.display = "block";
+    }
+</script>
+
+</html>
